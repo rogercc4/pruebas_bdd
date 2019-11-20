@@ -14,6 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <cucumber.version>1.2.0</cucumber.version>
 	<junit.version>4.11</junit.version>
+	<spring.version>4.3.25.RELEASE</spring.version>
   </properties>
   
   <dependencies>
@@ -33,6 +34,23 @@
 		<groupId>info.cukes</groupId>
 		<artifactId>cucumber-junit</artifactId>
 		<version>${cucumber.version}</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>info.cukes</groupId>
+		<artifactId>cucumber-spring</artifactId>
+		<version>${cucumber.version}</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring.version}</version>
 		<scope>test</scope>
 	</dependency>
   </dependencies>
