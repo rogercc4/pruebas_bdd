@@ -3,7 +3,6 @@ package pe.gob.sunat.bdd.steps.definitions;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;

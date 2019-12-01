@@ -47,6 +47,52 @@ public class ReglasValidadorDeclaracionServiceImpl implements ReglasValidadorDec
 		}
 		
 		return mensajesError;
+	}
+
+	public List<Map<String, String>> validarExisteDeclaracion(Declaracion declaracion, Integer numeroSerie) {
+		List<Map<String, String>> mensajesError = new java.util.ArrayList<Map<String,String>>();
+		ValidadorDatosDeclaracion validadorDatosDcl = new ValidadorDatosDeclaracion();
+		boolean existeDeclaracion = validadorDatosDcl.existeDeclaracion(declaracion, numeroSerie);
+		
+		if ( !existeDeclaracion ) {
+			Map<String, String> mapError = new java.util.HashMap<String, String>();
+			java.lang.StringBuilder sb = new java.lang.StringBuilder();
+			sb.append("No se encontró DAM ");
+			sb.append(declaracion.getNumeroCompleto());
+			sb.append(" con serie ");
+			sb.append(numeroSerie);
+			mapError.put("cod", "40101");
+			mapError.put("msg", sb.toString());
+			mensajesError.add(mapError);
+		}
+		
+		return mensajesError;
 	}	
+	
+	
+	public List<Map<String, String>> validarRegimenIgual(Declaracion declaracion, String codRegimenEsperado) {
+		List<Map<String, String>> mensajesError = new java.util.ArrayList<Map<String,String>>();
+		ValidadorDatosDeclaracion validadorDatosDcl = new ValidadorDatosDeclaracion();
+		
+		boolean esRegimenDiferente = validadorDatosDcl.esRegimenDiferente(declaracion, codRegimenEsperado);
+		
+		
+		if ( esRegimenDiferente ) {
+			ConsultaDatosDeclaracion consulta = new ConsultaDatosDeclaracion();
+			
+			java.lang.StringBuilder sb = new java.lang.StringBuilder();
+			sb.append("El régimen de la DAM deber ser ");
+			sb.append(codRegimenEsperado);
+			sb.append("-");
+			sb.append(consulta.getDescripcionRegimen(codRegimenEsperado));
+			
+			Map<String, String> mapError = new java.util.HashMap<String, String>();
+			mapError.put("cod", "40102");
+			mapError.put("msg", sb.toString());
+			mensajesError.add(mapError);
+		}
+		
+		return mensajesError;	
+	}
 	
 }

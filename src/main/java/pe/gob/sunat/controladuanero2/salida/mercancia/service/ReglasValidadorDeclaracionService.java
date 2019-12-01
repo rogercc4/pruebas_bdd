@@ -10,4 +10,9 @@ public interface ReglasValidadorDeclaracionService {
 	List<Map<String, String>> validarDireccionConsignatario(Declaracion declaracion);
 	
 	List<Map<String, String>> validarPaisDestino(Declaracion declaracion);
+	
+	List<Map<String, String>> validarExisteDeclaracion(Declaracion declaracion, Integer numeroSerie);
+	
+	List<Map<String, String>> validarRegimenIgual(Declaracion declaracion, String codRegimenEsperado);
+	
 }

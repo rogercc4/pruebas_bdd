@@ -18,6 +18,8 @@ public class Declaracion implements java.io.Serializable {
 	private String codPaisDestino;
 	
 	private Participante consignatario;
+	
+	private java.util.List<Serie> series;
 
 	public String getCodAduana() {
 		return codAduana;
@@ -65,6 +67,28 @@ public class Declaracion implements java.io.Serializable {
 
 	public void setConsignatario(Participante consignatario) {
 		this.consignatario = consignatario;
+	}
+
+	public java.util.List<Serie> getSeries() {
+		return series;
+	}
+
+	public void setSeries(java.util.List<Serie> series) {
+		this.series = series;
+	}
+	
+	
+	public String getNumeroCompleto() {
+		String separator = "-";
+		java.lang.StringBuilder sb = new java.lang.StringBuilder();
+		sb.append(this.getCodAduana());
+		sb.append(separator);
+		sb.append(this.getAnio());
+		sb.append(separator);
+		sb.append(this.getCodRegimen());
+		sb.append(separator);
+		sb.append(this.getNumero());
+		return sb.toString();
 	}
 	
 }
