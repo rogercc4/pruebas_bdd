@@ -1,4 +1,4 @@
-package pe.gob.sunat.controladuanero2.salida.mercancia.ripria.service;
+package pe.gob.sunat.controladuanero2.salida.mercancia.service;
 
 public class Constantes {
 

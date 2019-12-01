@@ -1,4 +1,4 @@
-package pe.gob.sunat.controladuanero2.salida.mercancia.ripria.service;
+package pe.gob.sunat.controladuanero2.salida.mercancia.service;
 
 import java.util.List;
 import java.util.Map;
@@ -28,6 +28,24 @@ public class ReglasValidadorDeclaracionServiceImpl implements ReglasValidadorDec
 			 mensajesError.add(mapError);
 		 }
 		 
+		return mensajesError;
+	}
+
+	public List<Map<String, String>> validarPaisDestino(Declaracion declaracion) {
+		List<Map<String, String>> mensajesError = new java.util.ArrayList<Map<String,String>>();
+		
+		ValidadorDatosDeclaracion validadorDatosDcl = new ValidadorDatosDeclaracion();
+		
+		boolean paisValido = validadorDatosDcl.esPaisValido(declaracion.getCodPaisDestino());
+		
+		if ( !paisValido ) {
+			Map<String, String> mapError = new java.util.HashMap<String, String>();
+			 String msgError = "País de destino de la DAM no válido";
+			 mapError.put("cod", "40100");
+			 mapError.put("msg", msgError);
+			 mensajesError.add(mapError);
+		}
+		
 		return mensajesError;
 	}	
 	

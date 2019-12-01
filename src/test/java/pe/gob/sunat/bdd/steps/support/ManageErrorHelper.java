@@ -11,7 +11,9 @@ public class ManageErrorHelper {
 	
 	
 	public void addMensajeError(String mensajeError) {
-		this.mensajesError.add(new ManageErrorHelper.MensajeError(mensajeError));
+		if ( mensajeError != null ) {
+			this.mensajesError.add(new ManageErrorHelper.MensajeError(mensajeError));
+		}
 	}
 	
 	public void addMensajeError(String codError, String mensajeError) {

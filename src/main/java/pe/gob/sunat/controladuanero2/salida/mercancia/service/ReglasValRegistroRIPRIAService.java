@@ -1,4 +1,4 @@
-package pe.gob.sunat.controladuanero2.salida.mercancia.ripria.service;
+package pe.gob.sunat.controladuanero2.salida.mercancia.service;
 
 import java.util.List;
 import java.util.Map;

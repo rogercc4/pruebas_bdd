@@ -1,4 +1,4 @@
-package pe.gob.sunat.controladuanero2.salida.mercancia.ripria.service;
+package pe.gob.sunat.controladuanero2.salida.mercancia.service;
 
 import pe.gob.sunat.controladuanero2.salida.mercancia.bean.OperacionRipRia;
 

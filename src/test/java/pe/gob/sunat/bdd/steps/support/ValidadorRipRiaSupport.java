@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import pe.gob.sunat.controladuanero2.salida.mercancia.bean.OperacionRipRia;
-import pe.gob.sunat.controladuanero2.salida.mercancia.ripria.service.ReglasValRegistroRIPRIAService;
-import pe.gob.sunat.controladuanero2.salida.mercancia.ripria.service.ReglasValRegistroRIPRIAServiceImpl;
+import pe.gob.sunat.controladuanero2.salida.mercancia.service.ReglasValRegistroRIPRIAService;
+import pe.gob.sunat.controladuanero2.salida.mercancia.service.ReglasValRegistroRIPRIAServiceImpl;
 
 @Component
 @Scope("cucumber-glue")

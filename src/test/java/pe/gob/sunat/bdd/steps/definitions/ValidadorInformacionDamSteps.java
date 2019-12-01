@@ -3,6 +3,7 @@ package pe.gob.sunat.bdd.steps.definitions;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -42,6 +43,19 @@ public class ValidadorInformacionDamSteps {
 	@Cuando("^se valida la direccion del consignatario de la DAM$")
 	public void se_valida_la_direccion_del_consignatario_de_la_DAM() throws Throwable {
 		String mensajeError = this.validadorDatosDeclaracionSupport.validarDireccionConsignatario();
+		this.manageErrorHelper.addMensajeError(mensajeError);
+	}
+	
+	@Cuando("^la DAM tiene país de destino con código \"(.*?)\"$")
+	public void la_DAM_tiene_país_de_destino_con_código(String arg1) throws Throwable {
+		Declaracion declaracion = new Declaracion();
+		declaracion.setCodPaisDestino(arg1);
+		this.validadorDatosDeclaracionSupport.setDeclaracion(declaracion);
+	}
+	
+	@Cuando("^se valida el país de destino de la DAM$")
+	public void se_valida_el_país_de_destino_de_la_DAM() throws Throwable {
+		String mensajeError = this.validadorDatosDeclaracionSupport.validarPaisDestino();
 		this.manageErrorHelper.addMensajeError(mensajeError);
 	}
 	
