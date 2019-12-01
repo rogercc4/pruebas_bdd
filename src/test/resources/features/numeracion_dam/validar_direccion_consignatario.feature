@@ -13,6 +13,7 @@ deseo que el sistema valide la dirección del consignatario de la DAM.
 		Esquema del escenario: Dirección incorrecta del consignatario		
 		
 		Cuando la DAM tiene dirección de consignatario "<direccion>"
+		Y se valida la direccion del consignatario de la DAM
 		Entonces se obtiene el mensaje de error "Se debe indicar la dirección del consignatario de la DAM (mínimo 5 caracteres)"
 			
 			Ejemplos:
@@ -20,7 +21,7 @@ deseo que el sistema valide la dirección del consignatario de la DAM.
 			|						| 
 			|	abcd			|
 			|	abc				|
-			|	ab cd			|
+			|	ab c			|
 		
 		Esquema del escenario: Dirección correcta del consignatario
 		
