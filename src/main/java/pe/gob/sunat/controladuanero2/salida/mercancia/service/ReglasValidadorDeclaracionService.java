@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import pe.gob.sunat.controladuanero2.salida.mercancia.bean.Declaracion;
+import pe.gob.sunat.controladuanero2.salida.mercancia.bean.RelacionDocumento;
 
 public interface ReglasValidadorDeclaracionService {
 
@@ -14,5 +15,7 @@ public interface ReglasValidadorDeclaracionService {
 	List<Map<String, String>> validarExisteDeclaracion(Declaracion declaracion, Integer numeroSerie);
 	
 	List<Map<String, String>> validarRegimenIgual(Declaracion declaracion, String codRegimenEsperado);
+	
+	List<Map<String, String>> validarSolicitudRectificacionPendiente(RelacionDocumento relacionDocumento);
 	
 }

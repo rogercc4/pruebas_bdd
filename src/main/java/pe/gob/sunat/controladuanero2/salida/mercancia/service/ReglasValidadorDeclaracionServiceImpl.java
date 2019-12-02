@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import pe.gob.sunat.controladuanero2.salida.mercancia.bean.Declaracion;
+import pe.gob.sunat.controladuanero2.salida.mercancia.bean.RelacionDocumento;
 
 public class ReglasValidadorDeclaracionServiceImpl implements ReglasValidadorDeclaracionService {
 
@@ -94,5 +95,30 @@ public class ReglasValidadorDeclaracionServiceImpl implements ReglasValidadorDec
 		
 		return mensajesError;	
 	}
+	
+	
+	public List<Map<String, String>> validarSolicitudRectificacionPendiente(RelacionDocumento relacionDocumento) {
+		List<Map<String, String>> mensajesError = new java.util.ArrayList<Map<String,String>>();
+		
+		boolean esSolicRecti = Constantes.SOLICITUD_RECTIFICACION_DAM.equals(relacionDocumento.getSolicitud().getCodTipoSolic());
+		
+		if ( esSolicRecti ) {
+			
+			ValidadorSolicitud validSolic = new ValidadorSolicitud();
+			
+			boolean estaPendientesDeAtencion = validSolic.estaPendientesDeAtencion(relacionDocumento.getSolicitud());
+			
+			if ( estaPendientesDeAtencion ) {
+				Map<String, String> mapError = new java.util.HashMap<String, String>();
+				mapError.put("cod", "40102");
+				mapError.put("msg", "DAM cuenta con solicitud de evaluación previa pendiente");
+				mensajesError.add(mapError);
+			}
+			
+		}
+		
+		return mensajesError;
+	}
+	
 	
 }

@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(tags="@REQ-18", plugin={"pretty", "html:resultados_pruebas"}, glue="pe.gob.sunat.bdd.steps.definitions", 
+@CucumberOptions(tags="@REQ-13", plugin={"pretty", "html:resultados_pruebas"}, glue="pe.gob.sunat.bdd.steps.definitions", 
 						features ="src/test/resources/features")
 public class RunCukesTest {
 }

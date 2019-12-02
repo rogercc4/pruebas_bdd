@@ -25,6 +25,8 @@ deseo que el sistema verifique si hay solicitudes rectificación pendientes de a
 				|	03			|	Asignado con especialista	|
 				|	04			|	En proceso de evaluar			|
 						
+			
+			Y se valida el tipo y estado de la solicitud al rectificar la DAM
 			Entonces <respuesta>
 			
 			Ejemplos: 
